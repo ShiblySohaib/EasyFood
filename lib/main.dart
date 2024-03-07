@@ -5,7 +5,7 @@ class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Delay navigation to the landing.dart screen
-    Future.delayed(Duration(seconds: 4), () {
+    Future.delayed(Duration(seconds: 1), () {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => LandingScreen()),

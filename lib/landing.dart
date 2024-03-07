@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login_screen.dart';
 
 class LandingScreen extends StatelessWidget {
   @override
@@ -35,7 +36,11 @@ class LandingScreen extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        // TODO: Implement signup functionality
+                        // Navigate to the login screen
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginScreen()),
+                        );
                       },
                       child: Text(
                         'Login',
@@ -45,7 +50,7 @@ class LandingScreen extends StatelessWidget {
                       ),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(Color(0xffFC6011)),
-                        minimumSize: MaterialStateProperty.all(Size(250, 50)),
+                        minimumSize: MaterialStateProperty.all(Size(300, 50)),
                       ),
                     ),
                     SizedBox(height: 10), // Adjust spacing between buttons
@@ -61,7 +66,7 @@ class LandingScreen extends StatelessWidget {
                       ),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(Colors.white),
-                        minimumSize: MaterialStateProperty.all(Size(250, 50)),
+                        minimumSize: MaterialStateProperty.all(Size(300, 50)),
                       ),
                     ),
                   ],
