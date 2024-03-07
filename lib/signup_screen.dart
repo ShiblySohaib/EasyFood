@@ -1,176 +1,79 @@
 import 'package:flutter/material.dart';
+import 'package:easyfood_flutter/formField.dart';
+import 'customButton.dart';
+import 'package:flutter/gestures.dart';
+import 'package:easyfood_flutter/login_screen.dart';
 
 class SignupScreen extends StatelessWidget {
-  final double borderRadius = 25;
-  final double buttonWidth = 300;
-  final double buttonHeight = 300;
-  final double gapHeight = 20; // Adjust the gap height as needed
-
+  var addgap = SizedBox(height: 20);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('Sign up')), // Center the title
+        title: Center(child: Text('Sign Up')), // Center the title
         automaticallyImplyLeading: false, // Remove the back button
       ),
-      body: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              'Add details to sign up',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-              ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Your existing widgets
+          Text(
+            'Enter your details to sign up',
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
             ),
-            SizedBox(height: gapHeight),
-            Container(
-              width: buttonWidth,
-              decoration: BoxDecoration(
-                color: Color(0xFFF2F2F2),
-                borderRadius: BorderRadius.circular(borderRadius),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Name',
-                  hintStyle: TextStyle(fontSize: 14, color: Colors.grey),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-            SizedBox(height: gapHeight),
-            Container(
-              width: buttonWidth,
-              decoration: BoxDecoration(
-                color: Color(0xFFF2F2F2),
-                borderRadius: BorderRadius.circular(borderRadius),
-              ),
-              child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'Email address',
-                  hintStyle: TextStyle(fontSize: 14, color: Colors.grey),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-
-
-            SizedBox(height: gapHeight),
-            Container(
-              width: buttonWidth,
-              decoration: BoxDecoration(
-                color: Color(0xFFF2F2F2),
-                borderRadius: BorderRadius.circular(borderRadius),
-              ),
-              child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'Mobile number',
-                  hintStyle: TextStyle(fontSize: 14, color: Colors.grey),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-
-
-            SizedBox(height: gapHeight),
-            Container(
-              width: buttonWidth,
-              decoration: BoxDecoration(
-                color: Color(0xFFF2F2F2),
-                borderRadius: BorderRadius.circular(borderRadius),
-              ),
-              child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'Address',
-                  hintStyle: TextStyle(fontSize: 14, color: Colors.grey),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-
-
-            SizedBox(height: gapHeight),
-            Container(
-              width: buttonWidth,
-              decoration: BoxDecoration(
-                color: Color(0xFFF2F2F2),
-                borderRadius: BorderRadius.circular(borderRadius),
-              ),
-              child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'Password',
-                  hintStyle: TextStyle(fontSize: 14, color: Colors.grey),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-
-            SizedBox(height: gapHeight),
-            Container(
-              width: buttonWidth,
-              decoration: BoxDecoration(
-                color: Color(0xFFF2F2F2),
-                borderRadius: BorderRadius.circular(borderRadius),
-              ),
-              child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'Confirm Password',
-                  hintStyle: TextStyle(fontSize: 14, color: Colors.grey),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-
-            SizedBox(height: gapHeight),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  // TODO: Implement login functionality
-                },
-                child: Text(
-                  'Sign Up',
-                  style: TextStyle(color: Colors.white),
-                ),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Color(0xffFC6011)),
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(borderRadius),
-                    ),
-                  ),
-                  minimumSize: MaterialStateProperty.all(Size(buttonWidth, 50)),
-                ),
-              ),
-            ),
-            SizedBox(height: gapHeight),
-            GestureDetector(
-              onTap: () {
-                // TODO: Implement forgot password functionality
+          ),
+          addgap,
+          TextInput(hintText: 'Name'),
+          addgap,
+          TextInput(hintText: 'Email address'),
+          addgap,
+          TextInput(hintText: 'Mobile Number'),
+          addgap,
+          TextInput(hintText: 'Address'),
+          addgap,
+          PassInput(hintText: 'Password'),
+          addgap,
+          PassInput(hintText: 'Confirm Password'),
+          addgap,
+          addgap,
+          Center(
+            child: OrangeButton(
+              text: 'Sign Up', // Override the text property
+              onPressed: () {
+                // Add your custom onPressed logic here
               },
-              child: Text(
-                'Already have an account?',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.black,
-                ),
-              ),
             ),
-            
-          ],
-        ),
+          ),
+          Spacer(), // Add Spacer to push the next widget to the bottom
+          RichText(
+            text: TextSpan(
+              text: "Already have an Account? ",
+              style: TextStyle(color: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                  text: 'Login',
+                  style: TextStyle(
+                    color: Color(0xffFC6011),
+                    fontWeight: FontWeight.bold,
+                  ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      );
+                    },
+                ),
+              ],
+            ),
+          ),
+          addgap,
+        ],
       ),
     );
   }
 }
+

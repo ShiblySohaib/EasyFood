@@ -1,5 +1,7 @@
+import 'package:easyfood_flutter/customButton.dart';
+import 'package:easyfood_flutter/signup_screen.dart';
+import 'package:easyfood_flutter/login_screen.dart';
 import 'package:flutter/material.dart';
-import 'login_screen.dart';
 
 class LandingScreen extends StatelessWidget {
   @override
@@ -34,40 +36,24 @@ class LandingScreen extends StatelessWidget {
                 margin: EdgeInsets.only(bottom: 20), // Adjust margin as needed
                 child: Column(
                   children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        // Navigate to the login screen
+                    OrangeButton(
+                      text: 'Login',
+                      onPressed: (){
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => LoginScreen()),
                         );
                       },
-                      child: Text(
-                        'Login',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Color(0xffFC6011)),
-                        minimumSize: MaterialStateProperty.all(Size(300, 50)),
-                      ),
                     ),
                     SizedBox(height: 10), // Adjust spacing between buttons
-                    ElevatedButton(
-                      onPressed: () {
-                        // TODO: Implement login functionality
+                    WhiteButton(
+                      text: 'Create an Account',
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SignupScreen()),
+                        );
                       },
-                      child: Text(
-                        'Signup',
-                        style: TextStyle(
-                          color: Color(0xffFC6011),
-                        ),
-                      ),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.white),
-                        minimumSize: MaterialStateProperty.all(Size(300, 50)),
-                      ),
                     ),
                   ],
                 ),

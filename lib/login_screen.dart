@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:easyfood_flutter/formField.dart';
+import 'customButton.dart';
+import 'package:flutter/gestures.dart';
+import 'package:easyfood_flutter/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
-  final double borderRadius = 25;
-  final double buttonWidth = 300;
-  final double buttonHeight = 50;
-  final double gapHeight = 20; // Adjust the gap height as needed
+  // Adjust the gap height as needed
+  var addgap = SizedBox(height: 20);
 
   @override
   Widget build(BuildContext context) {
@@ -13,87 +15,91 @@ class LoginScreen extends StatelessWidget {
         title: Center(child: Text('Login')), // Center the title
         automaticallyImplyLeading: false, // Remove the back button
       ),
-      body: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              'Enter your details to login',
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Your existing widgets
+          Text(
+            'Enter your details to login',
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+            ),
+          ),
+          addgap,
+          TextInput(hintText: 'Email'),
+          addgap,
+          PassInput(hintText: 'Password'),
+          addgap,
+          addgap,
+          Center(
+            child: OrangeButton(
+              text: 'Login', // Override the text property
+              onPressed: () {
+                // Add your custom onPressed logic here
+              },
+            ),
+          ),
+          addgap,
+          GestureDetector(
+            onTap: () {
+              // TODO: Implement forgot password functionality
+            },
+            child: Text(
+              'Forgot your password?',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 14,
                 color: Colors.black,
               ),
             ),
-            SizedBox(height: gapHeight),
-            Container(
-              width: buttonWidth,
-              decoration: BoxDecoration(
-                color: Color(0xFFF2F2F2),
-                borderRadius: BorderRadius.circular(borderRadius),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Email',
-                  hintStyle: TextStyle(fontSize: 14, color: Colors.grey),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-            SizedBox(height: gapHeight),
-            Container(
-              width: buttonWidth,
-              decoration: BoxDecoration(
-                color: Color(0xFFF2F2F2),
-                borderRadius: BorderRadius.circular(borderRadius),
-              ),
-              child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'Password',
-                  hintStyle: TextStyle(fontSize: 14, color: Colors.grey),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-            SizedBox(height: gapHeight),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  // TODO: Implement login functionality
-                },
-                child: Text(
-                  'Login',
-                  style: TextStyle(color: Colors.white),
-                ),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Color(0xffFC6011)),
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(borderRadius),
-                    ),
+          ),
+          SizedBox(height: 100),
+          Center(
+            child: Text('Or Login with'),
+          ),
+          addgap,
+          NewButton(
+            text: 'Login with Facebook',
+            onPressed: () {},
+            buttonColor: Colors.blue,
+            textColor: Colors.white,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          NewButton(
+            text: 'Login with Google',
+            onPressed: () {},
+            buttonColor: Colors.red,
+            textColor: Colors.white,
+          ),
+          Spacer(), // Add Spacer to push the next widget to the bottom
+          RichText(
+            text: TextSpan(
+              text: "Don't have an Account? ",
+              style: TextStyle(color: Colors.black),
+              children: <TextSpan>[
+                TextSpan(
+                  text: 'Sign Up',
+                  style: TextStyle(
+                    color: Color(0xffFC6011),
+                    fontWeight: FontWeight.bold,
                   ),
-                  minimumSize: MaterialStateProperty.all(Size(buttonWidth, buttonHeight)),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignupScreen()),
+                      );
+                    },
                 ),
-              ),
+              ],
             ),
-            SizedBox(height: gapHeight),
-            GestureDetector(
-              onTap: () {
-                // TODO: Implement forgot password functionality
-              },
-              child: Text(
-                'Forgot your password?',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            
-          ],
-        ),
+          ),
+          addgap,
+          addgap,
+        ],
       ),
     );
   }
