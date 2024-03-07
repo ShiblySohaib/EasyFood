@@ -25,25 +25,52 @@ class LandingScreen extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            SizedBox(height:4),
-            ElevatedButton(
-              onPressed: () {
-                // TODO: Implement signup functionality
-              },
-              child: Text('Login'),
-            ),
-            SizedBox(height:2),
-            ElevatedButton(
-              onPressed: () {
-                // TODO: Implement login functionality
-              },
-              child: Text('Signup'),
-            ),
             Spacer(),
+            SizedBox(height: 4),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                margin: EdgeInsets.only(bottom: 20), // Adjust margin as needed
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        // TODO: Implement signup functionality
+                      },
+                      child: Text(
+                        'Login',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Color(0xffFC6011)),
+                        minimumSize: MaterialStateProperty.all(Size(250, 50)),
+                      ),
+                    ),
+                    SizedBox(height: 10), // Adjust spacing between buttons
+                    ElevatedButton(
+                      onPressed: () {
+                        // TODO: Implement login functionality
+                      },
+                      child: Text(
+                        'Signup',
+                        style: TextStyle(
+                          color: Color(0xffFC6011),
+                        ),
+                      ),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.white),
+                        minimumSize: MaterialStateProperty.all(Size(250, 50)),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
-//hello
