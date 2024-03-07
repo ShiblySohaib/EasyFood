@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class LoginScreen extends StatelessWidget {
   final double borderRadius = 25;
   final double buttonWidth = 300;
-  final double buttonHeight = 300;
+  final double buttonHeight = 50;
   final double gapHeight = 20; // Adjust the gap height as needed
 
   @override
@@ -74,7 +74,7 @@ class LoginScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(borderRadius),
                     ),
                   ),
-                  minimumSize: MaterialStateProperty.all(Size(buttonWidth, 50)),
+                  minimumSize: MaterialStateProperty.all(Size(buttonWidth, buttonHeight)),
                 ),
               ),
             ),
