@@ -3,6 +3,8 @@ import 'package:easyfood_flutter/formField.dart';
 import 'customButton.dart';
 import 'package:flutter/gestures.dart';
 import 'package:easyfood_flutter/login_screen.dart';
+import 'package:easyfood_flutter/animations.dart';
+
 
 class SignupScreen extends StatelessWidget {
   var addgap = SizedBox(height: 20);
@@ -15,9 +17,7 @@ class SignupScreen extends StatelessWidget {
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Your existing widgets
           Text(
             'Enter your details to sign up',
             style: TextStyle(
@@ -41,13 +41,13 @@ class SignupScreen extends StatelessWidget {
           addgap,
           Center(
             child: OrangeButton(
-              text: 'Sign Up', // Override the text property
+              text: 'Sign Up',
               onPressed: () {
                 // Add your custom onPressed logic here
               },
             ),
           ),
-          Spacer(), // Add Spacer to push the next widget to the bottom
+          Spacer(),
           RichText(
             text: TextSpan(
               text: "Already have an Account? ",
@@ -61,9 +61,11 @@ class SignupScreen extends StatelessWidget {
                   ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                        SlideUpAnimation(
+                            page: LoginScreen(),
+                            duration: Duration(milliseconds: 400)),
                       );
                     },
                 ),

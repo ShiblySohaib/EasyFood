@@ -3,6 +3,7 @@ import 'package:easyfood_flutter/formField.dart';
 import 'customButton.dart';
 import 'package:flutter/gestures.dart';
 import 'package:easyfood_flutter/signup_screen.dart';
+import 'package:easyfood_flutter/animations.dart';
 
 class LoginScreen extends StatelessWidget {
   // Adjust the gap height as needed
@@ -17,9 +18,7 @@ class LoginScreen extends StatelessWidget {
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Your existing widgets
           Text(
             'Enter your details to login',
             style: TextStyle(
@@ -35,7 +34,7 @@ class LoginScreen extends StatelessWidget {
           addgap,
           Center(
             child: OrangeButton(
-              text: 'Login', // Override the text property
+              text: 'Login',
               onPressed: () {
                 // Add your custom onPressed logic here
               },
@@ -74,7 +73,7 @@ class LoginScreen extends StatelessWidget {
             buttonColor: Colors.red,
             textColor: Colors.white,
           ),
-          Spacer(), // Add Spacer to push the next widget to the bottom
+          Spacer(),
           RichText(
             text: TextSpan(
               text: "Don't have an Account? ",
@@ -88,16 +87,17 @@ class LoginScreen extends StatelessWidget {
                   ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => SignupScreen()),
+                        SlideUpAnimation(
+                            page: SignupScreen(),
+                            duration: Duration(milliseconds: 400)),
                       );
                     },
                 ),
               ],
             ),
           ),
-          addgap,
           addgap,
         ],
       ),

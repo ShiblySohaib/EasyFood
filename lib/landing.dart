@@ -2,6 +2,7 @@ import 'package:easyfood_flutter/customButton.dart';
 import 'package:easyfood_flutter/signup_screen.dart';
 import 'package:easyfood_flutter/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:easyfood_flutter/animations.dart';
 
 class LandingScreen extends StatelessWidget {
   @override
@@ -33,25 +34,29 @@ class LandingScreen extends StatelessWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                margin: EdgeInsets.only(bottom: 20), // Adjust margin as needed
+                margin: EdgeInsets.only(bottom: 20), 
                 child: Column(
                   children: [
                     OrangeButton(
                       text: 'Login',
-                      onPressed: (){
+                      onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => LoginScreen()),
+                          SlideLeftAnimation(
+                              page: LoginScreen(),
+                              duration: Duration(milliseconds: 300)),
                         );
                       },
                     ),
-                    SizedBox(height: 10), // Adjust spacing between buttons
+                    SizedBox(height: 10),
                     WhiteButton(
                       text: 'Create an Account',
-                      onPressed: (){
+                      onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => SignupScreen()),
+                          SlideLeftAnimation(
+                              page: SignupScreen(),
+                              duration: Duration(milliseconds: 300)),
                         );
                       },
                     ),

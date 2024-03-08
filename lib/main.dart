@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easyfood_flutter/landing.dart'; // Import the landing.dart file
+import 'package:easyfood_flutter/animations.dart';
 
 class FirstPage extends StatelessWidget {
   @override
@@ -8,7 +9,9 @@ class FirstPage extends StatelessWidget {
     Future.delayed(Duration(seconds: 1), () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => LandingScreen()),
+        SlideLeftAnimation(
+            page: LandingScreen(), 
+            duration: Duration(milliseconds: 800)),
       );
     });
 
