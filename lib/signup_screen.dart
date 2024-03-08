@@ -11,6 +11,7 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Center(child: Text('Sign Up')), // Center the title
         automaticallyImplyLeading: false, // Remove the back button
