@@ -1,3 +1,4 @@
+import 'package:easyfood_flutter/forgotpass01.dart';
 import 'package:flutter/material.dart';
 import 'package:easyfood_flutter/formField.dart';
 import 'customButton.dart';
@@ -46,12 +47,22 @@ class LoginScreen extends StatelessWidget {
             onTap: () {
               // TODO: Implement forgot password functionality
             },
-            child: Text(
-              'Forgot your password?',
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.black,
+            child: InkWell(
+              child: Text(
+                'Forgot your password?',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.black,
+                ),
               ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  SlideLeftAnimation(
+                      page: ForgotPass01(),
+                      duration: Duration(milliseconds: 300)),
+                );
+              },
             ),
           ),
           SizedBox(height: 100),
