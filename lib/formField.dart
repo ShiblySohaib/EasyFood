@@ -53,6 +53,7 @@ class PassInput extends StatelessWidget {
         borderRadius: BorderRadius.circular(borderRadius),
       ),
       child: TextField(
+        obscureText: obscureText,
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: TextStyle(fontSize: 14, color: Colors.grey),
