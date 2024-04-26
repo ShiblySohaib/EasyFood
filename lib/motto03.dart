@@ -1,16 +1,15 @@
-import 'package:easyfood_flutter/motto02.dart';
 import 'package:flutter/material.dart';
 import 'package:easyfood_flutter/formField.dart';
 import 'customButton.dart';
 import 'package:flutter/gestures.dart';
 import 'package:easyfood_flutter/login_screen.dart';
 import 'package:easyfood_flutter/animations.dart';
-import 'package:easyfood_flutter/signup02.dart';
+import 'package:easyfood_flutter/motto02.dart';
 
-class Motto01 extends StatelessWidget {
+class Motto03 extends StatelessWidget {
   var addgap = const SizedBox(height: 20);
 
-  Motto01({super.key});
+  Motto03({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +25,7 @@ class Motto01 extends StatelessWidget {
               height: 280,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('images/motto01.png'),
+                  image: AssetImage('images/motto03.png'),
                   fit: BoxFit.contain,
                 ),
               ),
@@ -37,7 +36,7 @@ class Motto01 extends StatelessWidget {
               height: 50,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('images/slide01.png'),
+                  image: AssetImage('images/slide03.png'),
                   fit: BoxFit.contain,
                 ),
               ),
@@ -45,7 +44,7 @@ class Motto01 extends StatelessWidget {
             Container(
               width: 300,
               child: Text(
-                'Find Food You Love',
+                'Scheduled Delivery',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20,
@@ -56,9 +55,9 @@ class Motto01 extends StatelessWidget {
             ),
             addgap,
              Container(
-              width: 400,
+              width: 280,
               child: Text(
-                'Discover the best food around you',
+                'Place order on your preferred time Enjoy food on the go',
                 softWrap: true,
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -78,7 +77,7 @@ class Motto01 extends StatelessWidget {
                 Navigator.push(
                   context,
                   SlideLeftAnimation(
-                      page: Motto02(),
+                      page: Motto02(),                                                    // link to home page
                       duration: Duration(milliseconds: 300)),
                 );
               },

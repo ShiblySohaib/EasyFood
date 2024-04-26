@@ -1,16 +1,16 @@
-import 'package:easyfood_flutter/motto02.dart';
+import 'package:easyfood_flutter/motto03.dart';
 import 'package:flutter/material.dart';
 import 'package:easyfood_flutter/formField.dart';
 import 'customButton.dart';
 import 'package:flutter/gestures.dart';
 import 'package:easyfood_flutter/login_screen.dart';
 import 'package:easyfood_flutter/animations.dart';
-import 'package:easyfood_flutter/signup02.dart';
+import 'package:easyfood_flutter/motto01.dart';
 
-class Motto01 extends StatelessWidget {
+class Motto02 extends StatelessWidget {
   var addgap = const SizedBox(height: 20);
 
-  Motto01({super.key});
+  Motto02({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +26,7 @@ class Motto01 extends StatelessWidget {
               height: 280,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('images/motto01.png'),
+                  image: AssetImage('images/motto02.png'),
                   fit: BoxFit.contain,
                 ),
               ),
@@ -37,7 +37,7 @@ class Motto01 extends StatelessWidget {
               height: 50,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('images/slide01.png'),
+                  image: AssetImage('images/slide02.png'),
                   fit: BoxFit.contain,
                 ),
               ),
@@ -45,7 +45,7 @@ class Motto01 extends StatelessWidget {
             Container(
               width: 300,
               child: Text(
-                'Find Food You Love',
+                'Fast & Reliable Delivery',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20,
@@ -58,7 +58,7 @@ class Motto01 extends StatelessWidget {
              Container(
               width: 400,
               child: Text(
-                'Discover the best food around you',
+                'Food Delivery to your home, hall or room wherever you are',
                 softWrap: true,
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -78,7 +78,7 @@ class Motto01 extends StatelessWidget {
                 Navigator.push(
                   context,
                   SlideLeftAnimation(
-                      page: Motto02(),
+                      page: Motto03(),
                       duration: Duration(milliseconds: 300)),
                 );
               },
