@@ -1,3 +1,4 @@
+import 'package:easyfood_flutter/signup02.dart';
 import 'package:flutter/material.dart';
 import 'package:easyfood_flutter/formField.dart';
 import 'customButton.dart';
@@ -44,7 +45,12 @@ class SignupScreen extends StatelessWidget {
             child: OrangeButton(
               text: 'Sign Up',
               onPressed: () {
-                // Add your custom onPressed logic here
+                Navigator.push(
+                  context,
+                  SlideLeftAnimation(
+                      page: SignUp02(),
+                      duration: Duration(milliseconds: 300)),
+                );
               },
             ),
           ),

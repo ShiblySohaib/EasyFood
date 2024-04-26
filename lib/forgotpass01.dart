@@ -1,10 +1,11 @@
 import 'package:easyfood_flutter/forgotpass03.dart';
 import 'package:flutter/material.dart';
 import 'package:easyfood_flutter/formField.dart';
-import 'customButton.dart';
+import 'package:easyfood_flutter/customButton.dart';
 import 'package:flutter/gestures.dart';
 import 'package:easyfood_flutter/login_screen.dart';
 import 'package:easyfood_flutter/animations.dart';
+import 'package:easyfood_flutter/forgotpass02.dart';
 
 class ForgotPass01 extends StatelessWidget {
   var addgap = SizedBox(height: 20);
@@ -22,18 +23,18 @@ class ForgotPass01 extends StatelessWidget {
           Container(
             width: 250,
             child: Text(
-              'Please enter your email to recieve a password reset link.',
+              'Please enter your email to recieve a verification code',
               softWrap: true,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.black,
+                color: Colors.grey,
               ),
             ),
           ),
           addgap,
           addgap,
-          TextInput(hintText: 'Name'),
+          TextInput(hintText: 'Email'),
           addgap,
           Center(
             child: OrangeButton(
@@ -42,38 +43,12 @@ class ForgotPass01 extends StatelessWidget {
                 Navigator.push(
                   context,
                   SlideLeftAnimation(
-                      page: ForgotPass03(),
+                      page: ForgotPass02(),
                       duration: Duration(milliseconds: 300)),
                 );
               },
             ),
           ),
-          Spacer(),
-          RichText(
-            text: TextSpan(
-              text: "Already have an Account? ",
-              style: TextStyle(color: Colors.black),
-              children: <TextSpan>[
-                TextSpan(
-                  text: 'Login',
-                  style: TextStyle(
-                    color: Color(0xffFC6011),
-                    fontWeight: FontWeight.bold,
-                  ),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      Navigator.pushReplacement(
-                        context,
-                        SlideUpAnimation(
-                            page: LoginScreen(),
-                            duration: Duration(milliseconds: 400)),
-                      );
-                    },
-                ),
-              ],
-            ),
-          ),
-          addgap,
         ],
       ),
     );
