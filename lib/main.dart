@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:easyfood_flutter/landing.dart'; // Import the landing.dart file
+import 'package:easyfood_flutter/landing.dart'; 
 import 'package:easyfood_flutter/animations.dart';
 
 class FirstPage extends StatelessWidget {

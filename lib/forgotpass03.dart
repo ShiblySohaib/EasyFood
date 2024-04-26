@@ -46,32 +46,6 @@ class ForgotPass03 extends StatelessWidget {
               },
             ),
           ),
-          Spacer(),
-          RichText(
-            text: TextSpan(
-              text: "Already have an Account? ",
-              style: TextStyle(color: Colors.black),
-              children: <TextSpan>[
-                TextSpan(
-                  text: 'Login',
-                  style: TextStyle(
-                    color: Color(0xffFC6011),
-                    fontWeight: FontWeight.bold,
-                  ),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      Navigator.pushReplacement(
-                        context,
-                        SlideUpAnimation(
-                            page: LoginScreen(),
-                            duration: Duration(milliseconds: 400)),
-                      );
-                    },
-                ),
-              ],
-            ),
-          ),
-          addgap,
         ],
       ),
     );
