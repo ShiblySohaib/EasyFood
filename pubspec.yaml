@@ -91,8 +91,12 @@ flutter:
   - images/tandori_pizza.png
   - images/landing.png
   - images/splash_screen.png
-  
-
+  - images/motto01.png
+  - images/motto02.png
+  - images/motto03.png
+  - images/slide01.png
+  - images/slide02.png
+  - images/slide03.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

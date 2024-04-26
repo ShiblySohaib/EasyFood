@@ -3,6 +3,7 @@ import 'package:easyfood_flutter/customButton.dart';
 import 'package:easyfood_flutter/animations.dart';
 import 'package:flutter/gestures.dart';
 import 'package:easyfood_flutter/forgotpass03.dart';
+import 'package:easyfood_flutter/motto01.dart';
 
 class SignUp02 extends StatelessWidget {
   var addgap = SizedBox(height: 20);
@@ -72,7 +73,12 @@ class SignUp02 extends StatelessWidget {
           OrangeButton(
             text: 'Submit',
             onPressed: () {
-              //add motto1 here
+              Navigator.push(
+                  context,
+                  SlideLeftAnimation(
+                      page: Motto01(),
+                      duration: Duration(milliseconds: 300)),
+                );
             },
           ),
           addgap,
