@@ -5,6 +5,8 @@ import 'package:flutter/gestures.dart';
 import 'package:easyfood_flutter/login_screen.dart';
 import 'package:easyfood_flutter/animations.dart';
 import 'package:easyfood_flutter/motto02.dart';
+import 'package:easyfood_flutter/home.dart';
+
 
 class Motto03 extends StatelessWidget {
   var addgap = const SizedBox(height: 20);
@@ -77,7 +79,7 @@ class Motto03 extends StatelessWidget {
                 Navigator.push(
                   context,
                   SlideLeftAnimation(
-                      page: Motto02(),                                                    // link to home page
+                      page: Home(),                                                    // link to home page
                       duration: Duration(milliseconds: 300)),
                 );
               },

@@ -73,7 +73,7 @@ class SignUp02 extends StatelessWidget {
           OrangeButton(
             text: 'Submit',
             onPressed: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                   context,
                   SlideLeftAnimation(
                       page: Motto01(),

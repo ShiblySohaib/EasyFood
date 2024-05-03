@@ -45,7 +45,7 @@ class SignupScreen extends StatelessWidget {
             child: OrangeButton(
               text: 'Sign Up',
               onPressed: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   SlideLeftAnimation(
                       page: SignUp02(),

@@ -5,6 +5,7 @@ import 'customButton.dart';
 import 'package:flutter/gestures.dart';
 import 'package:easyfood_flutter/signup_screen.dart';
 import 'package:easyfood_flutter/animations.dart';
+import 'package:easyfood_flutter/home.dart';
 
 class LoginScreen extends StatelessWidget {
   // Adjust the gap height as needed
@@ -38,7 +39,12 @@ class LoginScreen extends StatelessWidget {
             child: OrangeButton(
               text: 'Login',
               onPressed: () {
-                // Add your custom onPressed logic here
+                Navigator.push(
+                  context,
+                  SlideUpAnimation(
+                      page: Home(),
+                      duration: Duration(milliseconds: 500)),
+                );
               },
             ),
           ),
