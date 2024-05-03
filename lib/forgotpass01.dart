@@ -34,7 +34,7 @@ class ForgotPass01 extends StatelessWidget {
           ),
           addgap,
           addgap,
-          TextInput(hintText: 'Email'),
+          customTextInput(hintText: 'Email'),
           addgap,
           Center(
             child: OrangeButton(

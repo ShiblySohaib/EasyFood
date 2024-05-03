@@ -1,17 +1,11 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: false,
-      onPopInvoked: (didPop) => _onPopInvoked(context, didPop),
-      child: Scaffold(
-        body: SafeArea(
-            child: SingleChildScrollView(
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Column(
             children: [
               SearchAndCart(),
@@ -21,59 +15,14 @@ class Home extends StatelessWidget {
               MostPopularFoods(),
             ],
           ),
-        )),
-      ),
-    );
-  }
-
-  void _onPopInvoked(BuildContext context, bool didPop) async {
-    if (didPop) {
-      return;
-    }
-    final shouldExit = await showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        content: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20.0),
-              child: Text('Are you sure you want to exit?'),
-            ),
-          ],
         ),
-        actions: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context, true);
-                  SystemNavigator.pop();
-                },
-                child: const Text(
-                  'Exit',
-                  style: TextStyle(color: Color(0xffFC6011)),
-                ),
-              ),
-              const SizedBox(width: 20.0),
-              TextButton(
-                onPressed: () => Navigator.pop(context, false),
-                child: const Text(
-                  'Cancel',
-                  style: TextStyle(color: Color(0xffFC6011)),
-                ),
-              ),
-            ],
-          ),
-        ],
       ),
     );
-    if (shouldExit ?? false) {
-      Navigator.of(context).pop();
-    }
   }
 }
+
+
+
 
 class SearchAndCart extends StatelessWidget {
   @override
@@ -119,10 +68,14 @@ class SearchAndCart extends StatelessWidget {
   }
 }
 
+
+
 class DeliveryLocation extends StatefulWidget {
   @override
   _DeliveryLocationState createState() => _DeliveryLocationState();
 }
+
+
 
 class _DeliveryLocationState extends State<DeliveryLocation> {
   String _selectedLocation = 'Knowledge Tower';
@@ -179,6 +132,8 @@ class _DeliveryLocationState extends State<DeliveryLocation> {
     );
   }
 }
+
+
 
 class RecommendedFoods extends StatelessWidget {
   @override
@@ -256,6 +211,8 @@ class RecommendedFoods extends StatelessWidget {
     );
   }
 }
+
+
 
 class PopularRestaurants extends StatelessWidget {
   @override
@@ -357,8 +314,6 @@ class PopularRestaurants extends StatelessWidget {
 
 
 
-
-
 class MostPopularFoods extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -395,9 +350,12 @@ class MostPopularFoods extends StatelessWidget {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              _popularFoodItem('images/bbq_rice.png', 'Fried rice with BBQ', 'Food Court', 150),
-              _popularFoodItem('images/biriyani.png', 'Chicken biriyani', 'Green Garden', 220),
-              _popularFoodItem('images/pepperoni.png', 'Safu\'s Pizza 8\"', 'Safus', 275),
+              _popularFoodItem('images/bbq_rice.png', 'Fried rice with BBQ',
+                  'Food Court', 150),
+              _popularFoodItem('images/biriyani.png', 'Chicken biriyani',
+                  'Green Garden', 220),
+              _popularFoodItem(
+                  'images/pepperoni.png', 'Safu\'s Pizza 8\"', 'Safus', 275),
             ],
           ),
         ),
@@ -430,7 +388,7 @@ class MostPopularFoods extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '$name', 
+                  '$name',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 14.0,
@@ -463,3 +421,8 @@ class MostPopularFoods extends StatelessWidget {
     );
   }
 }
+
+
+
+
+

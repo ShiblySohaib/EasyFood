@@ -1,11 +1,8 @@
+import 'package:easyfood_flutter/main.dart';
 import 'package:flutter/material.dart';
-import 'package:easyfood_flutter/formField.dart';
 import 'customButton.dart';
-import 'package:flutter/gestures.dart';
-import 'package:easyfood_flutter/login_screen.dart';
 import 'package:easyfood_flutter/animations.dart';
-import 'package:easyfood_flutter/motto02.dart';
-import 'package:easyfood_flutter/home.dart';
+
 
 
 class Motto03 extends StatelessWidget {
@@ -79,7 +76,7 @@ class Motto03 extends StatelessWidget {
                 Navigator.push(
                   context,
                   SlideLeftAnimation(
-                      page: Home(),                                                    // link to home page
+                      page: MyApp(),                                                    // link to home page
                       duration: Duration(milliseconds: 300)),
                 );
               },

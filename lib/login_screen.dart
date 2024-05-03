@@ -5,7 +5,7 @@ import 'customButton.dart';
 import 'package:flutter/gestures.dart';
 import 'package:easyfood_flutter/signup_screen.dart';
 import 'package:easyfood_flutter/animations.dart';
-import 'package:easyfood_flutter/home.dart';
+import 'main.dart';
 
 class LoginScreen extends StatelessWidget {
   // Adjust the gap height as needed
@@ -30,9 +30,9 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           addgap,
-          TextInput(hintText: 'Email'),
+          customTextInput(hintText: 'Email'),
           addgap,
-          PassInput(hintText: 'Password'),
+          customPassInput(hintText: 'Password'),
           addgap,
           addgap,
           Center(
@@ -42,7 +42,7 @@ class LoginScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   SlideUpAnimation(
-                      page: Home(),
+                      page: MyApp(),
                       duration: Duration(milliseconds: 500)),
                 );
               },

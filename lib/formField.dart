@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'customButton.dart';
 
-class TextInput extends StatelessWidget {
+class customTextInput extends StatelessWidget {
   final double width = 300;
   final double borderRadius = 25;
   final boxColor = Color(0xFFF2F2F2);
   String hintText = 'input';
 
-  TextInput({
+  customTextInput({
     Key? key,
     required this.hintText,
   }) : super(key: key);
@@ -32,14 +32,14 @@ class TextInput extends StatelessWidget {
   }
 }
 
-class PassInput extends StatelessWidget {
+class customPassInput extends StatelessWidget {
   final double width = 300;
   final double borderRadius = 25;
   final boxColor = Color(0xFFF2F2F2);
   final bool obscureText = true;
   String hintText = 'Password';
 
-  PassInput({
+  customPassInput({
     Key? key,
     required this.hintText,
   }) : super(key: key);

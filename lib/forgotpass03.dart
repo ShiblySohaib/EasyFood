@@ -1,9 +1,11 @@
+import 'package:easyfood_flutter/main.dart';
 import 'package:flutter/material.dart';
 import 'package:easyfood_flutter/formField.dart';
 import 'customButton.dart';
 import 'package:flutter/gestures.dart';
 import 'package:easyfood_flutter/login_screen.dart';
 import 'package:easyfood_flutter/animations.dart';
+
 
 
 class ForgotPass03 extends StatelessWidget {
@@ -34,15 +36,20 @@ class ForgotPass03 extends StatelessWidget {
 
           addgap,
           addgap,
-          TextInput(hintText: 'New Password'),
+          customTextInput(hintText: 'New Password'),
           addgap,
-          TextInput(hintText: 'Confirm Password'),
+          customTextInput(hintText: 'Confirm Password'),
           addgap,
           Center(
             child: OrangeButton(
               text: 'Next',
               onPressed: () {
-                // Add your custom onPressed logic here
+                Navigator.push(
+                  context,
+                  SlideUpAnimation(
+                      page: MyApp(),
+                      duration: Duration(milliseconds: 500)),
+                );
               },
             ),
           ),
