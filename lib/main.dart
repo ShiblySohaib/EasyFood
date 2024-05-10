@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'package:easyfood_flutter/FirstPage.dart';
+import 'package:easyfood_flutter/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:easyfood_flutter/menu.dart';
 import 'package:easyfood_flutter/latest_offers.dart';
@@ -118,7 +120,12 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-void main() {
+//slight change here
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
   runApp(MaterialApp(
     home: FirstPage()
   ));

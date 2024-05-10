@@ -1,4 +1,5 @@
 import 'package:easyfood_flutter/signup02.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:easyfood_flutter/formField.dart';
 import 'customButton.dart';
@@ -6,9 +7,11 @@ import 'package:flutter/gestures.dart';
 import 'package:easyfood_flutter/login_screen.dart';
 import 'package:easyfood_flutter/animations.dart';
 
-
 class SignupScreen extends StatelessWidget {
   var addgap = SizedBox(height: 20);
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,13 +33,15 @@ class SignupScreen extends StatelessWidget {
           addgap,
           customTextInput(hintText: 'Name'),
           addgap,
-          customTextInput(hintText: 'Email address'),
+          customTextInput2(
+              hintText: 'Email address', controller: emailController),
           addgap,
           customTextInput(hintText: 'Mobile Number'),
           addgap,
           customTextInput(hintText: 'Address'),
           addgap,
-          customPassInput(hintText: 'Password'),
+          customPassInput2(
+              hintText: 'Password', controller: passwordController),
           addgap,
           customPassInput(hintText: 'Confirm Password'),
           addgap,
@@ -44,13 +49,34 @@ class SignupScreen extends StatelessWidget {
           Center(
             child: OrangeButton(
               text: 'Sign Up',
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  SlideLeftAnimation(
-                      page: SignUp02(),
-                      duration: Duration(milliseconds: 300)),
-                );
+              // changed onpressed logic 
+              onPressed: () async {
+                try {
+                  UserCredential userCredential = await FirebaseAuth.instance
+                      .createUserWithEmailAndPassword(
+                          email: emailController.text,
+                          password: passwordController.text);
+                  Navigator.pushReplacement(
+                    context,
+                    SlideLeftAnimation(
+                        page: SignUp02(),
+                        duration: Duration(milliseconds: 300)),
+                  );
+                } on FirebaseAuthException catch (e) {
+                  String message = 'hello';
+                  if (e.code == 'weak-password') {
+                    message = 'The password provided is too weak.';
+                  } else if (e.code == 'email-already-in-use') {
+                    message = 'The account already exists for that email.';
+                  }
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(message),
+                    ),
+                  );
+                } catch (e) {
+                  print(e);
+                }
               },
             ),
           ),
@@ -85,4 +111,3 @@ class SignupScreen extends StatelessWidget {
     );
   }
 }
-
