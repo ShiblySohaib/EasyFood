@@ -56,9 +56,9 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           addgap,
-          customTextInput2(hintText: 'Email', controller: emailController,),
+          customTextInput(hintText: 'Email', controller: emailController,),
           addgap,
-          customPassInput2(hintText: 'Password', controller: passwordController,),
+          customPassInput(hintText: 'Password', controller: passwordController,),
           addgap,
           addgap,
           Center(

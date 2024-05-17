@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:easyfood_flutter/animations.dart';
+import 'package:easyfood_flutter/greengarden.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -20,9 +22,6 @@ class Home extends StatelessWidget {
     );
   }
 }
-
-
-
 
 class SearchAndCart extends StatelessWidget {
   @override
@@ -68,14 +67,10 @@ class SearchAndCart extends StatelessWidget {
   }
 }
 
-
-
 class DeliveryLocation extends StatefulWidget {
   @override
   _DeliveryLocationState createState() => _DeliveryLocationState();
 }
-
-
 
 class _DeliveryLocationState extends State<DeliveryLocation> {
   String _selectedLocation = 'Knowledge Tower';
@@ -132,8 +127,6 @@ class _DeliveryLocationState extends State<DeliveryLocation> {
     );
   }
 }
-
-
 
 class RecommendedFoods extends StatelessWidget {
   @override
@@ -212,8 +205,6 @@ class RecommendedFoods extends StatelessWidget {
   }
 }
 
-
-
 class PopularRestaurants extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -249,6 +240,13 @@ class PopularRestaurants extends StatelessWidget {
           imagePath: 'images/green_garden.png',
           title: 'Green Garden',
           rating: 4.5,
+          onTap: () {
+            Navigator.push(
+              context,
+              SlideLeftAnimation(
+                  page: GreenGarden(), duration: Duration(milliseconds: 300)),
+            );
+          },
           totalRatings: 124,
         ),
         _buildImageRow(
@@ -256,12 +254,14 @@ class PopularRestaurants extends StatelessWidget {
           title: 'Food Court',
           rating: 4.9,
           totalRatings: 117,
+          onTap: () {},
         ),
         _buildImageRow(
           imagePath: 'images/library_cafe.png',
           title: 'Library Cafe',
           rating: 3.9,
           totalRatings: 91,
+          onTap: () {},
         ),
         SizedBox(height: 50.0),
       ],
@@ -272,47 +272,52 @@ class PopularRestaurants extends StatelessWidget {
       {required String imagePath,
       required String title,
       required double rating,
-      required num totalRatings}) {
+      required num totalRatings,
+      required Function()? onTap}) {
+    // Added onTap parameter
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start, // Align text to the left
-        children: [
-          Image.asset(
-            imagePath,
-            width: double.infinity,
-            height: 200.0,
-            fit: BoxFit.cover,
-          ),
-          SizedBox(height: 10.0),
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.bold, // Make text bold
+      child: GestureDetector(
+        // Wrap with GestureDetector
+        onTap: onTap, // Pass onTap callback
+        child: Column(
+          crossAxisAlignment:
+              CrossAxisAlignment.start, // Align text to the left
+          children: [
+            Image.asset(
+              imagePath,
+              width: double.infinity,
+              height: 200.0,
+              fit: BoxFit.cover,
             ),
-          ),
-          Row(
-            children: [
-              Icon(Icons.star, color: Color(0xffFC6011)), // Star icon
-              SizedBox(width: 5.0),
-              Text(
-                '$rating',
-                style: TextStyle(fontSize: 14.0, color: Color(0xffFC6011)),
+            SizedBox(height: 10.0),
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.bold, // Make text bold
               ),
-              Text(
-                ' ($totalRatings ratings)',
-                style: TextStyle(fontSize: 14.0, color: Colors.grey),
-              )
-            ],
-          ),
-        ],
+            ),
+            Row(
+              children: [
+                Icon(Icons.star, color: Color(0xffFC6011)), // Star icon
+                SizedBox(width: 5.0),
+                Text(
+                  '$rating',
+                  style: TextStyle(fontSize: 14.0, color: Color(0xffFC6011)),
+                ),
+                Text(
+                  ' ($totalRatings ratings)',
+                  style: TextStyle(fontSize: 14.0, color: Colors.grey),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
 }
-
-
 
 class MostPopularFoods extends StatelessWidget {
   @override
@@ -421,8 +426,3 @@ class MostPopularFoods extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

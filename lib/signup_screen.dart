@@ -33,14 +33,14 @@ class SignupScreen extends StatelessWidget {
           addgap,
           customTextInput(hintText: 'Name'),
           addgap,
-          customTextInput2(
+          customTextInput(
               hintText: 'Email address', controller: emailController),
           addgap,
           customTextInput(hintText: 'Mobile Number'),
           addgap,
           customTextInput(hintText: 'Address'),
           addgap,
-          customPassInput2(
+          customPassInput(
               hintText: 'Password', controller: passwordController),
           addgap,
           customPassInput(hintText: 'Confirm Password'),

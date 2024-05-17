@@ -10,10 +10,9 @@ class OrangeButton extends StatelessWidget {
   VoidCallback onPressed = (){
   };
   OrangeButton({
-    Key? key,
     required this.text,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -46,10 +45,9 @@ class WhiteButton extends StatelessWidget {
   VoidCallback onPressed = (){
   };
   WhiteButton({
-    Key? key,
     required this.text,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -81,12 +79,11 @@ class NewButton extends StatelessWidget {
   VoidCallback onPressed = (){
   };
   NewButton({
-    Key? key,
     required this.text,
     required this.onPressed,
     required this.buttonColor,
     required this.textColor,
-  }) : super(key: key);
+  });
 
   Widget build(BuildContext context) {
     return ElevatedButton(
