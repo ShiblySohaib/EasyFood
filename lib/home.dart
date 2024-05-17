@@ -1,3 +1,4 @@
+import 'package:easyfood_flutter/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:easyfood_flutter/animations.dart';
 import 'package:easyfood_flutter/greengarden.dart';
@@ -59,6 +60,10 @@ class SearchAndCart extends StatelessWidget {
             icon: Icon(Icons.shopping_cart),
             onPressed: () {
               // Handle cart icon tap
+               Navigator.push( // Navigate to cart page
+                 context,
+                 MaterialPageRoute(builder: (context) => CartPage()),
+               );
             },
           ),
         ],

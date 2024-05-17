@@ -30,7 +30,7 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     double total = 0.0;
-    double deliveryFee = 5.0; // Define a fixed delivery fee
+    double deliveryFee = 44.0; // Define a fixed delivery fee
 
     for (var item in Cart.items) {
       total += item.totalPrice;
@@ -51,7 +51,7 @@ class _CartPageState extends State<CartPage> {
                 final item = Cart.items[index];
                 return ListTile(
                   title: Text(item.name),
-                  subtitle: Text('Quantity: ${item.quantity}, Total: \$${item.totalPrice.toStringAsFixed(2)}'),
+                  subtitle: Text('Quantity: ${item.quantity}, Total: \৳${item.totalPrice.toStringAsFixed(2)}'),
                   trailing: IconButton(
                     icon: Icon(Icons.delete),
                     onPressed: () {

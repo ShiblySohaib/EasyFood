@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'addToCart.dart'; // Import the addToCart.dart page
+import 'cart.dart';
 
 class GreenGarden extends StatelessWidget {
   @override
@@ -12,6 +13,10 @@ class GreenGarden extends StatelessWidget {
             icon: Icon(Icons.shopping_cart),
             onPressed: () {
               // cart logic
+              Navigator.push(       // Navigate to cart page
+               context,
+               MaterialPageRoute(builder: (context) => CartPage()),
+               );
             },
           ),
         ],
@@ -67,10 +72,10 @@ class FastFood extends StatelessWidget {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              _buildFoodItem(context, 'images/shwarma.png', 'Shwarma', 5.99),
-              _buildFoodItem(context, 'images/pepperoni.png', 'Pizza', 8.99),
-              _buildFoodItem(context, 'images/singara.png', 'Singara', 2.49),
-              _buildFoodItem(context, 'images/meatbox.png', 'Meatbox', 6.49),
+              _buildFoodItem(context, 'images/shwarma.png', 'Shwarma', 120),
+              _buildFoodItem(context, 'images/pepperoni.png', 'Pizza', 250),
+              _buildFoodItem(context, 'images/singara.png', 'Singara', 5),
+              _buildFoodItem(context, 'images/meatbox.png', 'Meatbox', 350),
             ],
           ),
         ),
@@ -94,7 +99,7 @@ class ChineseFood extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Fast Food',
+                'Chinese Food',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20.0,
@@ -117,10 +122,10 @@ class ChineseFood extends StatelessWidget {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              _buildFoodItem(context, 'images/shwarma.png', 'Shwarma', 5.99),
-              _buildFoodItem(context, 'images/pepperoni.png', 'Pizza', 8.99),
-              _buildFoodItem(context, 'images/singara.png', 'Singara', 2.49),
-              _buildFoodItem(context, 'images/meatbox.png', 'Meatbox', 6.49),
+              _buildFoodItem(context, 'images/bbq_rice.png', 'BBQ rice', 200),
+              _buildFoodItem(context, 'images/prawn_veg.png', 'Prawn', 180),
+              _buildFoodItem(context, 'images/sandwitch.png', 'chinese sandwitch', 90),
+              _buildFoodItem(context, 'images/burger.png', 'chinese burger', 170),
             ],
           ),
         ),
@@ -144,7 +149,7 @@ class VegFood extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Fast Food',
+                'Vegetarian Food',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20.0,
@@ -167,10 +172,10 @@ class VegFood extends StatelessWidget {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              _buildFoodItem(context, 'images/shwarma.png', 'Shwarma', 5.99),
-              _buildFoodItem(context, 'images/pepperoni.png', 'Pizza', 8.99),
-              _buildFoodItem(context, 'images/singara.png', 'Singara', 2.49),
-              _buildFoodItem(context, 'images/meatbox.png', 'Meatbox', 6.49),
+              _buildFoodItem(context, 'images/korean_veg.png', 'Korean vegetable', 250),
+              _buildFoodItem(context, 'images/mixed_veg.png', 'Mixed vegetable', 200),
+              _buildFoodItem(context, 'images/sobji.png', 'Bengali Vegetable', 100),
+              _buildFoodItem(context, 'images/french_fry.png', 'French fry',100),
             ],
           ),
         ),
