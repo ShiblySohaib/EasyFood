@@ -1,6 +1,6 @@
 # easyfood_flutter
 
-A new Flutter project.
+A food delivery mobile application made with flutter.
 
 ## Getting Started
 
